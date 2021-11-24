@@ -51,7 +51,8 @@ services:
        placement:
          constraints:
           - node.role == worker
-   another_shop:
+   
+  another_shop:
      image: kpujaehak/product_web
      hostname: '{{.Node.Hostname}}'
      networks:

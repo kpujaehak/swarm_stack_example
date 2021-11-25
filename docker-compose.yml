@@ -5,12 +5,10 @@ services:
   kpu_shop:
      image: kpujaehak/myshop:last
      hostname: '{{.Node.Hostname}}'
-     networks:
-       - kpu_overlay_network
      ports:
        - 5050:5001
      deploy:
-       replicas: 2
+       replicas: 3
        placement:
          constraints:
           - node.role == worker
@@ -18,14 +16,10 @@ services:
   another_shop:
      image: kpujaehak/product_web
      hostname: '{{.Node.Hostname}}'
-     networks:
-       - kpu_overlay_network
      ports:
        - 5051:80
      deploy:
-       replicas: 2
+       replicas: 3
        placement:
          constraints:
           - node.role == worker
-networks:
-  kpu_overlay_network:
